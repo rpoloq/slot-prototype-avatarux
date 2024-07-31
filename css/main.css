@@ -39,6 +39,8 @@ button {
     justify-content: space-evenly;
 }
 #win-text {
+    display: flex;
+    color: #00ff00;
     position: absolute;
     z-index: 2;
     font-size: 150px;

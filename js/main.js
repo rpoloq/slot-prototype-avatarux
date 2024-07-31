@@ -76,6 +76,10 @@ function spinReels() {
     }
     winAmount = checkWins();
     moneyText.innerText = 'Win Amount: ' + winAmount;
+    
+    if (winAmount > 0)
+        winText.style.display = "";
+
 }
 
 function checkWins() {
@@ -128,6 +132,7 @@ function testWin() {
     }
 
     winAmount = checkWins();
+
     moneyText.innerText = 'Win Amount: ' + winAmount;
 }
 
