@@ -11,11 +11,14 @@ const config = {
 let game;
 let spinButton;
 let testWinButton;
+let moneyText;
+let symbols = ['symbol1', 'symbol2'];
 
 function preload() {
     this.load.image('symbol1', 'assets/symbol1.png');
     this.load.image('symbol2', 'assets/symbol2.png');
 }
+
 
 function create() {
     this.add.sprite(100, 100, 'symbol1');
@@ -26,17 +29,21 @@ function create() {
 
     testWinButton = document.getElementById('test-win-button');
     testWinButton.addEventListener('click', testWin);
+
+    moneyText = document.getElementById('money');
 }
 
 function update() {}
 
-let symbols = ['symbol1', 'symbol2'];
 
 function spinReels() {
+    let winAmount = 0;
     for (let i = 0; i < 5; i++) {
         let symbol = symbols[Phaser.Math.Between(0, symbols.length - 1)];
         console.log(`Reel ${i}: ${symbol}`);
+        winAmount += symbol === 'symbol1' ? 10 : 5;
     }
+    moneyText.innerText = 'Win Amount: ' + winAmount;
 }
 
 
