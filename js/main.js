@@ -45,6 +45,18 @@ function spinReels() {
     moneyText.innerText = 'Win Amount: ' + winAmount;
 }
 
+function checkWins() {
+    let winAmount = 0;
+    for (let i = 0; i < 5; i++) {
+        if (reels[i][0].texture.key === reels[i][1].texture.key && reels[i][1].texture.key === reels[i][2].texture.key) {
+            let symbolKey = reels[i][0].texture.key;
+            winAmount += symbolValues[symbolKey] || 0;
+        }
+    }
+    return winAmount;
+}
+
+
 function testWin() {
     console.log('Test Win button clicked');
 }
