@@ -40,12 +40,10 @@ function spinReels() {
     let winAmount = 0;
     for (let i = 0; i < 5; i++) {
         let symbol = symbols[Phaser.Math.Between(0, symbols.length - 1)];
-        console.log(`Reel ${i}: ${symbol}`);
         winAmount += symbol === 'symbol1' ? 10 : 5;
     }
     moneyText.innerText = 'Win Amount: ' + winAmount;
 }
-
 
 function testWin() {
     console.log('Test Win button clicked');
