@@ -30,9 +30,15 @@ function create() {
 
 function update() {}
 
+let symbols = ['symbol1', 'symbol2'];
+
 function spinReels() {
-    console.log('Spin button clicked');
+    for (let i = 0; i < 5; i++) {
+        let symbol = symbols[Phaser.Math.Between(0, symbols.length - 1)];
+        console.log(`Reel ${i}: ${symbol}`);
+    }
 }
+
 
 function testWin() {
     console.log('Test Win button clicked');
