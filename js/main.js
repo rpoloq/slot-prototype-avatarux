@@ -79,9 +79,23 @@ function checkWins() {
 }
 
 
-
 function testWin() {
-    console.log('Test Win button clicked');
+    winText.style.display = 'none';
+    let predefinedSymbols = [
+        ['10', '10', '10', 'H1', 'H2'],
+        ['A', 'A', 'A', 'A', 'H1'],
+        ['Q', 'Q', 'Q', 'Q', 'Q']
+    ];
+
+    for (let i = 0; i < 5; i++) {
+        for (let j = 0; j < 3; j++) {
+            let symbol = predefinedSymbols[j][i];
+            reels[i][j].setTexture(symbol);
+        }
+    }
+
+    winAmount = checkWins();
+    moneyText.innerText = 'Win Amount: ' + winAmount;
 }
 
 window.onload = () => {
