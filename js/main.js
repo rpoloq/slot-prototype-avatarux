@@ -115,8 +115,8 @@ function checkWins() {
 function testWin() {
     winText.style.display = 'none';
     let predefinedSymbols = [
-        ['10', '10', '10', 'H1', 'H2'],
-        ['A', 'A', 'A', 'A', 'H1'],
+        ['Q', 'H2', '10', '10', '10'],
+        ['H1', 'A', 'A', 'A', 'H1'],
         ['Q', 'Q', 'Q', 'Q', 'Q']
     ];
 
