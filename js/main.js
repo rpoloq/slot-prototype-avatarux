@@ -47,12 +47,32 @@ function spinReels() {
 
 function checkWins() {
     let winAmount = 0;
-    for (let i = 0; i < 5; i++) {
-        if (reels[i][0].texture.key === reels[i][1].texture.key && reels[i][1].texture.key === reels[i][2].texture.key) {
-            let symbolKey = reels[i][0].texture.key;
-            winAmount += symbolValues[symbolKey] || 0;
+
+    for (let j = 0; j < 3; j++) {
+        let alignedSlots = [0];
+        for (let i = 1; i < 5; i++) {
+            if (reels[i][j].texture.key === reels[alignedSlots[alignedSlots.length - 1]][j].texture.key) {
+                alignedSlots.push(i);
+            } else {
+                if (alignedSlots.length >= 3) {
+                    alignedSlots.forEach(index => {
+                        let symbolKey = reels[index][j].texture.key;
+                        reels[index][j].setTexture(`${symbolKey}_connect`);
+                        winAmount += symbolValues[symbolKey] || 0;
+                    });
+                }
+                alignedSlots = [i];
+            }
+        }
+        if (alignedSlots.length >= 3) {
+            alignedSlots.forEach(index => {
+                let symbolKey = reels[index][j].texture.key;
+                reels[index][j].setTexture(`${symbolKey}_connect`);
+                winAmount += symbolValues[symbolKey] || 0;
+            });
         }
     }
+
     return winAmount;
 }
 
