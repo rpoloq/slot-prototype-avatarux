@@ -58,6 +58,7 @@ function checkWins() {
                     alignedSlots.forEach(index => {
                         let symbolKey = reels[index][j].texture.key;
                         reels[index][j].setTexture(`${symbolKey}_connect`);
+                        reels[index][j].setInteractive().setData('blinking', true);
                         winAmount += symbolValues[symbolKey] || 0;
                     });
                 }
@@ -68,6 +69,7 @@ function checkWins() {
             alignedSlots.forEach(index => {
                 let symbolKey = reels[index][j].texture.key;
                 reels[index][j].setTexture(`${symbolKey}_connect`);
+                reels[index][j].setInteractive().setData('blinking', true);
                 winAmount += symbolValues[symbolKey] || 0;
             });
         }
@@ -75,6 +77,7 @@ function checkWins() {
 
     return winAmount;
 }
+
 
 
 function testWin() {
